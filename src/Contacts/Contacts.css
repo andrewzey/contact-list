@@ -1,0 +1,29 @@
+.contacts__container {
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 0 1rem;
+}
+
+.contacts__grid {}
+.contacts__cell {
+  margin: 0.5rem;
+}
+
+/* Tablet */
+@media screen and (min-width: 600px) {
+  .contacts__grid {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+  }
+  .contacts__cell {
+    width: calc(33.3333% - 1rem);
+  }
+}
+
+/* Desktop */
+@media screen and (min-width: 1000px) {
+  .contacts__cell {
+    width: calc(25% - 1rem);
+  }
+}

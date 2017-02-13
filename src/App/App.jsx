@@ -25,8 +25,6 @@ class App extends Component {
       })
       .then((json) => {
         this.setState({contacts: json});
-        // TODO: remove logging statement
-        console.log(this.state.contacts);
       })
       .catch((error) => {
         throw new Error('Something went wrong!', error);
@@ -37,7 +35,7 @@ class App extends Component {
     return (
       <div>
         <Header />
-        <Contacts />
+        <Contacts data={this.state.contacts} />
       </div>
     );
   }
