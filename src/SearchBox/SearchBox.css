@@ -1,0 +1,17 @@
+.search-box {
+  position: relative;
+  font-size: 1rem;
+  width: 100%;
+  padding: 0.3rem;
+  border: 1px solid rgb(220,220,220);
+}
+
+/* Tablet and Desktop */
+@media screen and (min-width: 600px) {
+  .search-box {
+    position: absolute;
+    top: calc(50% - 0.75rem);
+    right: 1.5rem;
+    width: auto;
+  }
+}

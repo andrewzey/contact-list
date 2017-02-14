@@ -11,8 +11,25 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      contacts: null
+      contacts: null,
+      filteredContacts: null,
     };
+  }
+
+  /* Filters contacts according to searchString
+   * only searches through "name", "job", and "company_name" fields, since
+   * they are visible without hovering
+   * Search functionality is case insensitive.
+   */
+  filterContacts(searchString) {
+    const filteredContacts = this.state.contacts.filter((contact) => {
+      return (
+        contact.name.toLowerCase().includes(searchString) ||
+        contact.job.toLowerCase().includes(searchString) ||
+        contact.company_name.toLowerCase().includes(searchString)
+      );
+    });
+    this.setState({filteredContacts});
   }
 
   componentDidMount() {
@@ -24,7 +41,7 @@ class App extends Component {
         return response.json();
       })
       .then((json) => {
-        this.setState({contacts: json});
+        this.setState({contacts: json, filteredContacts: json});
       })
       .catch((error) => {
         throw new Error('Something went wrong!', error);
@@ -34,8 +51,10 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Header />
-        <Contacts data={this.state.contacts} />
+        <Header
+          searchFunc={(searchString) => this.filterContacts(searchString)}
+        />
+        <Contacts data={this.state.filteredContacts} />
       </div>
     );
   }
