@@ -20,18 +20,20 @@ const Contact = ({
         src={profile_image}
         alt={name}
       />
-      <img
-        className={`${baseClass}__icon`}
-        src={icon}
-        alt="Icon"
-      />
-      <p className={`${baseClass}__name`}>{name}</p>
-      <p className={`${baseClass}__details`}>{job} | @{company_name}</p>
-      <br />
+      <div className={`${Contact.baseClass}__info-panel`}>
+        <img
+          className={`${baseClass}__icon`}
+          src={icon}
+          alt="Icon"
+        />
+        <p className={`${baseClass}__name`}>{name}</p>
+        <p className={`${baseClass}__details`}>{job} | @{company_name}</p>
 
-      <div className={`${Contact.baseClass}__hoverinfo`}>
-        <p className={`${baseClass}__details`}>Phone Number {phone}</p>
-        <p className={`${baseClass}__details`}>{email}</p>
+        <div className={`${Contact.baseClass}__more-details`}>
+          <br />
+          <p className={`${baseClass}__details`}>Phone Number {phone}</p>
+          <p className={`${baseClass}__details`}>{email}</p>
+        </div>
       </div>
     </div>
   );
