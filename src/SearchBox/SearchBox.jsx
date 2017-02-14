@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 
 import './SearchBox.css';
+import searchIcon from './icon-search.png';
 
 const baseClass = 'search-box';
 
@@ -20,12 +21,21 @@ class SearchBox extends Component {
 
   render() {
     return (
-      <input
-        className={baseClass}
-        placeholder="search..."
-        value={this.state.searchBoxValue}
-        onChange={(event) => this.handleChange(event)}
-      />
+      <div className={baseClass}>
+        <img
+          className={`${baseClass}__icon`}
+          src={searchIcon}
+          width="21"
+          height="18"
+          alt="search icon"
+        />
+        <input
+          className={`${baseClass}__input`}
+          placeholder="search..."
+          value={this.state.searchBoxValue}
+          onChange={(event) => this.handleChange(event)}
+        />
+      </div>
     );
   }
 }
